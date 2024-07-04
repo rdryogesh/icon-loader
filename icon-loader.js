@@ -1,5 +1,5 @@
 async function loadIcons() {
-  const repo = "your-username/your-repository"; // Replace with your GitHub username and repository name
+  const repo = "rdryogesh/icon-loader"; // Replace with your GitHub username and repository name
   const cdnBaseUrl = `https://${repo}.github.io/icons/`;
 
   try {
