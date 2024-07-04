@@ -21,14 +21,12 @@
               const svgUrl = `${cdnBaseUrl}${fileName}`;
               const svgContent = await fetch(svgUrl).then(res => res.text());
 
-              // Find the corresponding div by id and add the SVG content
-              const targetElement = document.getElementById(iconName);
-              if (targetElement) {
+              // Find the corresponding div by data-icon-name and add the SVG content
+              const targetElements = document.querySelectorAll(`[data-icon-name="${iconName}"]`);
+              targetElements.forEach(targetElement => {
                   targetElement.innerHTML = svgContent;
                   targetElement.style.display = 'block'; // Show the div after adding content
-              } else {
-                  console.warn(`Element with id '${iconName}' not found.`);
-              }
+              });
           }
       }
   } catch (error) {
