@@ -8,12 +8,16 @@
       const response = await fetch(apiUrl);
       const files = await response.json();
 
+      console.log('Files fetched from GitHub:', files); // Debug log
+
       for (const file of files) {
           const fileName = file.name;
           const iconName = `icon-${fileName.replace('.svg', '').toLowerCase()}`;
           const svgUrl = `${cdnBaseUrl}${fileName}`;
           const svgResponse = await fetch(svgUrl);
           const svgContent = await svgResponse.text();
+
+          console.log(`Loaded icon: ${iconName}`); // Debug log
 
           const iconDiv = document.createElement('div');
           iconDiv.id = iconName;
